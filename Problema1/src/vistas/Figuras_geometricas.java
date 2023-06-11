@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package vistas;
+
 import controlador.*;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -18,7 +19,8 @@ public class Figuras_geometricas extends javax.swing.JFrame {
      */
     triangulo obj_triangulo;
     rectangulo obj_rectangulo;
-    circunferencia  obj_circunferencia;
+    circunferencia obj_circunferencia;
+
     public Figuras_geometricas() {
         initComponents();
         txtRadio.setEnabled(false);
@@ -226,12 +228,12 @@ public class Figuras_geometricas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void rdbRectanguloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbRectanguloActionPerformed
-         btnCalcular.setEnabled(true); 
+        btnCalcular.setEnabled(true);
         JTextField[] textFields = {txtAltura, txtRadio, txtLargo, txtAncho};
-         for (JTextField textField : textFields) {
+        for (JTextField textField : textFields) {
             textField.setText("");
         }
-        if (rdbRectangulo.isSelected()){
+        if (rdbRectangulo.isSelected()) {
             txtRadio.setEnabled(false);
             txtAltura.setEnabled(false);
             lblRadio.setEnabled(false);
@@ -245,12 +247,12 @@ public class Figuras_geometricas extends javax.swing.JFrame {
     }//GEN-LAST:event_rdbRectanguloActionPerformed
 
     private void rdbCircunferenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbCircunferenciaActionPerformed
-         btnCalcular.setEnabled(true);
+        btnCalcular.setEnabled(true);
         JTextField[] textFields = {txtAltura, txtRadio, txtLargo, txtAncho};
-         for (JTextField textField : textFields) {
+        for (JTextField textField : textFields) {
             textField.setText("");
         }
-        if (rdbCircunferencia.isSelected()){
+        if (rdbCircunferencia.isSelected()) {
             txtLargo.setEnabled(false);
             txtAltura.setEnabled(false);
             txtAncho.setEnabled(false);
@@ -265,10 +267,10 @@ public class Figuras_geometricas extends javax.swing.JFrame {
     private void rdbTrianguloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbTrianguloActionPerformed
         btnCalcular.setEnabled(true);
         JTextField[] textFields = {txtAltura, txtRadio, txtLargo, txtAncho};
-         for (JTextField textField : textFields) {
+        for (JTextField textField : textFields) {
             textField.setText("");
         }
-        if (rdbTriangulo.isSelected()){
+        if (rdbTriangulo.isSelected()) {
             txtRadio.setEnabled(false);
             txtAltura.setEnabled(true);
             lblRadio.setEnabled(false);
@@ -282,65 +284,61 @@ public class Figuras_geometricas extends javax.swing.JFrame {
     }//GEN-LAST:event_rdbTrianguloActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-         System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
-       //TRIANGULO
-        if (rdbTriangulo.isSelected()){
-           if (txtAncho.getText().trim().equals(""))
-            {
+        //TRIANGULO
+        if (rdbTriangulo.isSelected()) {
+            if (txtAncho.getText().trim().equals("")) {
                 JOptionPane.showMessageDialog(rootPane, "EL Ancho no puede estar vacio");
                 txtAncho.requestFocus();
-            }else if (txtAltura.getText().trim().equals(""))
-            {
+            } else if (txtAltura.getText().trim().equals("")) {
                 JOptionPane.showMessageDialog(rootPane, "La Altura no puede estar vacia");
                 txtAltura.requestFocus();
-            }else{
-                try{
-                     obj_triangulo = new triangulo (Double.parseDouble(txtAltura.getText()),Double.parseDouble(txtAncho.getText()));
-                     JOptionPane.showMessageDialog(rootPane, "El area del triangulo es: "+ obj_triangulo.CalcularArea());
-                    
-            }catch (Exception e){
-                JOptionPane.showMessageDialog(rootPane, "Error de Calculo de area");
+            } else {
+                try {
+                    obj_triangulo = new triangulo(Double.parseDouble(txtAltura.getText()), Double.parseDouble(txtAncho.getText()));
+                    JOptionPane.showMessageDialog(rootPane, "El area del triangulo es: " + obj_triangulo.CalcularArea());
+
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(rootPane, "Error de Calculo de area");
+                }
             }
-            }  
-       //RECTÁNGULO
-       }else if(rdbRectangulo.isSelected()){
-           if (txtLargo.getText().trim().equals(""))
-            {
+            //RECTÁNGULO
+        } else if (rdbRectangulo.isSelected()) {
+            if (txtLargo.getText().trim().equals("")) {
                 JOptionPane.showMessageDialog(rootPane, "EL Largo no puede estar vacio");
                 txtLargo.requestFocus();
-            }else if (txtAncho.getText().trim().equals(""))
-            {
+            } else if (txtAncho.getText().trim().equals("")) {
                 JOptionPane.showMessageDialog(rootPane, "EL Ancho no puede estar vacio");
                 txtAncho.requestFocus();
-            }else{
-                try{
-                    obj_rectangulo = new rectangulo (Double.parseDouble(txtLargo.getText()),Double.parseDouble(txtAncho.getText()));
-                    JOptionPane.showMessageDialog(rootPane, "El area del Rectángulo es: "+ obj_rectangulo.CalcularArea());
-                    
-            }catch (Exception e){
-                JOptionPane.showMessageDialog(rootPane, "Error de Calculo de area");
+            } else {
+                try {
+                    obj_rectangulo = new rectangulo(Double.parseDouble(txtLargo.getText()), Double.parseDouble(txtAncho.getText()));
+                    JOptionPane.showMessageDialog(rootPane, "El area del Rectángulo es: " + obj_rectangulo.CalcularArea());
+
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(rootPane, "Error de Calculo de area");
+                }
             }
-            }  
-        //CIRCUNFERENCIA   
-       }else if(rdbCircunferencia.isSelected()){
-           if (txtRadio.getText().trim().equals(""))
-            {
+            //CIRCUNFERENCIA   
+        } else if (rdbCircunferencia.isSelected()) {
+            if (txtRadio.getText().trim().equals("")) {
                 JOptionPane.showMessageDialog(rootPane, "EL Radio no puede estar vacio");
                 txtRadio.requestFocus();
-            }else{
-                try{
-                     obj_circunferencia  = new circunferencia  (Double.parseDouble(txtRadio.getText()));
-           JOptionPane.showMessageDialog(rootPane, "El area dela Circunferencia es: "+ obj_circunferencia .CalcularArea());
-                    
-            }catch (Exception e){
-                JOptionPane.showMessageDialog(rootPane, "Error de Calculo de area");
+            } else {
+                try {
+                    obj_circunferencia = new circunferencia(Double.parseDouble(txtRadio.getText()));
+                    JOptionPane.showMessageDialog(rootPane, "El area dela Circunferencia es: " + obj_circunferencia.CalcularArea());
+
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(rootPane, "Error de Calculo de area");
+                }
+
             }
-          
-       } }
-         
+        }
+
     }//GEN-LAST:event_btnCalcularActionPerformed
 
     /**
